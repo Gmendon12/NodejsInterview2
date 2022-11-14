@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ol>
+        <li>
+            <div><strong>What are the different types of HTTP requests</strong></div>
+            <p>
+                HyperText Transfer Protocol(HTTP) specifies a collection of request method which speicifies what action is to be performed on a particular resource. The most commonly used http request methods are GET, POST, PUT and DELETE.
+
+                <ul>
+                    <li>
+                        GET : this request is used to read data from a web server. The GET request returns an HTTP Status code of 200(request is successful) if the data is successfully retrieved from the server. 
+                    </li>
+                    <li>
+                        Post : this request is used to send the data to the server. It can only be retrieved in the body. It is used when we need confidential data as it is only retrievable at the backend and not visible on the webpage.
+                        On successful creation, it returns an HTTP statu code 201
+                    </li>
+                    <li>
+                        PUT : this request is used to modify the data on the server. it replaces the entire content at a particular location with the data that is passed in the body payload. If there are no resources that match the request, it will generate one.
+                    </li>
+                    <li>
+                        DELETE : this request is used to delete the data on the server at a specified location.
+                    </li>
+                </ul>
+            </p>
+        </li>
+
+        <li>
+            <div><strong>Explain the concept of middleware in Nodejs</strong></div>
+            <p>
+                Express.js is a routing framewaork used for managing different routing of the webpage and it works between the request and response cycle.
+                A middleware comes in between a request and a response. Middleware gets executed after the server recieves the request and before the controller actions send the response.
+                The Middleware has the access to the request object, response object and the next() function, it can process the request before the server and send a response. Middlewares were introduced to avoid DDOs attack. DDOs stands for Direct Denial of Service, is an attack which occurs when a server recieves thousands or millions of requests in a short period od time, and the serves does not have sufficient connections(ports) to fulfill all the requests and the server may crash.
+                Thus, the middleware was introduced as if the server is full, the middleware can decline your request unless there is a connection available in the server.
+            </p>
+        </li>
+        <li>
+            <div><strong>Explain CORS</strong></div>
+            <p>
+                CORS : Cross Origin Resource Sharing is a mechanism by which the data or any resource of a site can be shared intentionally to a third party website when there is need. Every server runs on different platforms, and any server cannot connect with another server just like that, there has to be medium through which they can connect with one another. CORS also acts as a middleware and can also help us redirect users to a specific URL for eg. if I want to register to Linkedin through my gmail account, CORS can redirect me to google url to help me log into my google account and create my Linkein account.
+                Generally, access to rescources that are residing in a third party site is restricted by the browser clients fot security pruporses.
+
+                <pre>
+                const cors = require('cors')
+                app.use(cors())
+                app.get('/default', default,(req,res) =>{
+                    console.log("default")
+                })
+                </pre>
+            </p>
+        </li>
+
+        <li>
+            <div><strong>What is Express? How does it help you create a backend application?</strong></div>
+            <p>
+                Express.js is a framework that sits on top of NodeJS web server functionality to simplify its API and add helpful features. It makes it easier to organize your application's functionality with middlware and routing. 
+
+                <pre>
+                    const express = require("express")
+                    const app = express()
+                </pre>
+            </p>
+        </li>
+
+        <li>
+            <div><strong>Explain 5 status codes that are used in Backend development</strong></div>
+            <p>
+                A status code is a message the website servers sends to the browser to indicate whether or not that request can be fulfilled. Status codes specs are set by the W3C. Status Codes are embedded in the HTTP header page to tell the browser the result of its request
+
+                <ul>
+                    <li>
+                        *102 - Processing
+                    </li>
+                    <li>
+                        *200 - OK 
+                    </li>
+                    <li>
+                        *400 - Bad request
+                    </li>
+                    <li>
+                        *402 - Payment Required
+                    </li>
+                    <li>
+                        *403 - Forbiden
+                    </li>
+                    <li>
+                        *404 - Not Founf/Error
+                    </li>
+                    <li>
+                        *500 - Internal server error
+                    </li>
+                    <li>
+                        *503 - Service unavailable
+                    </li>
+                </ul>
+            </p>
+        </li>
+
+        <li>
+            <div><strong>Difference between HTTP and HTTPS</strong></div>
+            <p>
+                The only difference between these 2 protocols is that HTTPS used TLS(SSL) to encrypt normal HTTP requests and responses. As a result, HTTPS is far more secure thatn HTTP. The website that uses HTTP has http:// in its URL and a website with HTTPS has https:// in its website.
+            </p>
+        </li>
+
+        <li>
+            <div><strong>What are JWT tokens?</strong></div>
+            <p>
+                JSON web token(JWT), is an open standard that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. Again, JWT is a standard meaning that all JWT's are tokens, but not all tokens are JWT's. When we log in womewhere, they provide us a wunique token, which helps us to access through it. Tokens are provided only when the registered data and login data are matching.
+            </p>
+        </li>
+    </ol>
+</body>
+</html>
